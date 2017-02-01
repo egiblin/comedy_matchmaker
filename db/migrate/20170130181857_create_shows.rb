@@ -8,6 +8,7 @@ class CreateShows < ActiveRecord::Migration[5.0]
       t.float :duration, null: false
       t.integer :slots, null: false
       t.string :creator, null: false
+      t.string :price, null: false
 
       t.timestamps
     end
