@@ -1,11 +1,8 @@
 <div id="wrapper">
   <div id="content">
     <h1>Upcoming Shows</h1>
-    <ul class="menu align-center" id="show_list">
-      <% @shows.each do |show| %>
-        <li><a href="/shows/<%= show.id %>"><%= show.name %> at <%= show.location %>
-        <%= show.time %>, <%= show.time %></a></li>
-      <% end %>
-    </ul>
+    <div id="App" data-shows='<%= @shows.to_json %>'>
+
+    </div>
   </div>
 </div>
