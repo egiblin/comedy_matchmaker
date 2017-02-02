@@ -1,10 +1,16 @@
 import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import App from './components/App';
 
 $(function() {
+  // let shows = JSON.parse(document.getElementById('App').dataset.shows);
   ReactDOM.render(
-    <h1>Boo yaa</h1>,
-    document.getElementById('app')
+    <div>
+      <App
+      // shows={shows}
+      />
+    </div>,
+    document.getElementById('App')
   );
 });
