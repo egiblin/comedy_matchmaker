@@ -12,50 +12,8 @@
     <link href="https://fonts.googleapis.com/css?family=Podkova" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Quintessential" rel="stylesheet">
   </head>
-  <div class="top-bar">
-  <div class="top-bar-title">
-    <h3><a class="logo" href="/">Comedy Matchmaker</a></h3>
-  </div>
-  <div id="responsive-menu">
-  <div class="top-bar-left">
-    <button class="button" type="button" data-toggle="Comedy Index">Find</button>
-      <div class="dropdown-pane" id="Comedy Index" data-dropdown data-hover="true" data-hover-pane="true">
-      <ul id="hover1" class="f-dropdown inline-list" data-dropdown-content>
-        <li><a href="#">Performers</a></li>
-        <li><a href="#">Teams</a></li>
-        <li><a href="#">Shows</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="top-bar-left">
-    <ul class="menu">
-      <%= form_tag(root_path, :method => "get", id: "search-form") do %>
-        <li><%= text_field_tag :search, params[:search], placeholder: "Search Comedy" %></li>
-      <% end %>
-    </ul>
-  </div>
-  <div class="top-bar-right">
-        <% if user_signed_in? %>
-          <ul class="dropdown menu" data-dropdown-menu>
-            <li>
-            <%= link_to current_user.email, user_path(current_user.id) %>
-              <ul class="menu vertical">
-                <% if current_user.admin == true  %>
-                <li><%= link_to 'View All Users', users_path, :class => 'navbar-link' %></li>
-                <% end %>
-                <li><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %></li>
-                <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link' %></li>
-              </ul>
-            </li>
-        <% else %>
-      <span><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %></span>
-          <span><%= link_to "Login", new_user_session_path, :class => 'navbar-link', :id => 'login' %></span>
-        <% end %>
-    </ul>
-  </div>
-  </div>
-</div>
   <body>
+    <div id="App"
     <% if notice %>
       <p class="alert alert-success"><%= notice %></p>
     <% end %>
