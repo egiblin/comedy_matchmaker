@@ -1,0 +1,11 @@
+<div class="team-index-page">
+  <div id="team-header">
+    <h1 id='team-headline'>Teams</h1>
+  </div>
+  <div class="team-index-section">
+    <% @teams.each do |team| %>
+      <img class="profile_photo", src="<%= team.team_photo %>">
+      <p3><%= team.name %></p3>
+    <% end %>
+  </div>
+</div>

@@ -20,19 +20,36 @@ body {
    height: 100%;
    margin: 0;
    text-align: center;
+   background-image: url('http://www.adsce.com/wp-content/uploads/2011/07/CarolinesLRGPICTURE.jpg');
 }
-div#wrapper {
-  background-color: #efefef;
+div#content, div#wrapper {
+  background-color: #E8DDCB;
   width: 50em;
   margin: 0 auto;
   height: 100%;
   text-align: left;
 }
-div#content {
-  background-color: #efefef;
-}
 li {
   list-style: none;
+}
+
+img#team-show-photos {
+  display: block;
+  margin: 0 auto;
+}
+
+ul#adding-columns {
+  font-size: 2em;
+  text-align: center;
+}
+
+li.main-page-items{
+  font-size: 2em;
+  text-align: center;
+  border-color: black;
+  border-width: 50px;
+  border-color: red;
+  position: relative;
 }
 
 #show_list {
@@ -49,8 +66,9 @@ li {
   margin-right: 2em;
 }
 
-#search-form {
-
+h3#display-team-name {
+  text-align: center;
+  font-size: 3em;
 }
 
 #login {
@@ -60,9 +78,7 @@ li {
 .navbar-link {
   font-size: 1.4em;
 }
-body {
-  background: linear-gradient(#605951, white);
-}
+
 body, .logo, .navbar-link {
   font-family: 'Quintessential', cursive;
 }
