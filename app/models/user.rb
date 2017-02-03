@@ -13,6 +13,8 @@ class User < ApplicationRecord
   validates :last_name, presence: true
   validates :admin, default: false
 
+  has_many :usershows
   has_many :shows, through: :usershows
+  has_many :userteams
   has_many :teams, through: :userteams
 end

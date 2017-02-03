@@ -1,0 +1,20 @@
+<div class="user-show-page">
+  <div id="user-header">
+    <h1 id='user-headline'><%= @user.first_name %> <%= @user.last_name %></h1>
+    <img class="profile_photo", src="<%= @user.avatar %>">
+  </div>
+  <div class="team-section">
+    <h2>Teams</h2>
+    <% @user.teams.each do |team| %>
+      <h4><%= team.name %></h4>
+      <img class="user-show-photos", src="<%= team.team_photo %>">
+    <% end %>
+  </div>
+  <div class="show-section">
+    <h2>Upcoming Shows</h2>
+    <% @user.shows.each do |show| %>
+      <h4><%= show.name %></h4>
+      <img class="user-show-photos", src="<%= team.show_photo %>">
+    <% end %>
+  </div>
+</div>

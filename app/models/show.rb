@@ -7,7 +7,10 @@ class Show < ApplicationRecord
   validates :slots, presence: true
   validates :creator, presence: true
   validates :price, presence: true
+  mount_uploader :show_photo, ShowPhotoUploader
 
+  has_many :usershows
   has_many :users, through: :usershows
+  has_many :userteams
   has_many :teams, through: :userteams
 end
