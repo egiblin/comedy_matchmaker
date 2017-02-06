@@ -1,6 +1,10 @@
 class ShowsController < ApplicationController
   def index
     @shows = Show.all.order("date DESC")
+    respond_to do |format|
+      format.html
+      format.json { render json: @shows }
+    end
   end
 
   def show
