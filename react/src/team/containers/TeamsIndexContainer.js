@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import TeamTile from '../components/TeamTile'
+import TeamTile from '../components/TeamTile';
 
-class TeamPage extends Component {
+class TeamsIndexContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -31,12 +31,11 @@ class TeamPage extends Component {
     });
     return(
       <div className="teams">
-        <h2> I am the Bars Index Container </h2>
         {teams}
         {this.props.children}
       </div>
-    )
+    );
   }
 }
 
-export default TeamPage;
+export default TeamsIndexContainer;

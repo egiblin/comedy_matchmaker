@@ -1,15 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-
-const ShowTile = ({ id, name, location, image_url, slots, date, time, duration, creator, price }) => {
+const ShowShow = ({ id, name, location, image_url, slots, date, time, duration, creator, price }) => {
     return(
       <div className="show">
-        <h1><Link to={`/shows/${id}`}> {name} </Link></h1>
+        <h1> {name}</h1>
         <h3>Location: {location} </h3>
         <img src={image_url} />
       </div>
     );
   };
 
-export default ShowTile;
+export default ShowShow;
