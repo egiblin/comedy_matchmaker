@@ -17,23 +17,24 @@ class UserShowContainer extends Component {
       });
   }
   render() {
-    return(
-      <div className="user">
-      <UserShow
+    if (this.state.data.length === 0) {
+      return(
+        <div></div>
+      );
+    }
+    else {
+      return(
+        <div className="users">
+        <UserShow
         key={this.state.data.id}
         id={this.state.data.id}
         first_name={this.state.data.first_name}
         last_name={this.state.data.last_name}
-        image_url={this.state.data.avatar}
-        slots={this.state.data.slots}
-        date={this.state.data.date}
-        time={this.state.data.time}
-        duration={this.state.data.duration}
-        creator={this.state.data.creator}
-        price={this.state.data.price}
-      />
-      </div>
-    );
+        image_url={this.state.data.avatar.url}
+        />
+        </div>
+      );
+    }
   }
 }
 

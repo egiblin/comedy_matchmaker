@@ -17,17 +17,24 @@ class TeamShowContainer extends Component {
       });
   }
   render() {
-    return(
-      <div className="team">
-      <TeamShow
+    if (this.state.data.length === 0) {
+      return(
+        <div></div>
+      );
+    }
+    else {
+      return(
+        <div className="teams">
+        <TeamShow
         key={this.state.data.id}
         id={this.state.data.id}
         name={this.state.data.name}
         location={this.state.data.location}
-        image_url={this.state.data.team_photo}
-      />
-      </div>
-    );
+        image_url={this.state.data.team_photo.url}
+        />
+        </div>
+      );
+    }
   }
 }
 
