@@ -14,7 +14,8 @@ class ShowsIndexContainer extends Component {
       date: "",
       price: "",
       slots: 0,
-      addClicked: false
+      addClicked: false,
+      current_user: this.props.location.query.current_user
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleNameChange = this.handleNameChange.bind(this);
@@ -82,16 +83,16 @@ class ShowsIndexContainer extends Component {
     event.preventDefault();
     let fetchBody = { name: this.state.name, location: this.state.location,
     duration: this.state.duration, time: this.state.time,
-    date: this.state.date, price: this.state.price, slots: this.state.slots };
-    let newArticles = [];
+    date: this.state.date, price: this.state.price, slots: this.state.slots, creator: this.state.current_user };
+    let newShows = [];
     fetch('/api/v1/shows',
       { method: "POST",
       body: JSON.stringify(fetchBody) })
       .then(function(response) {
-        newArticles = response.json();
-        return newArticles;
+        newShows = response.json();
+        return newShows;
       }).then((response) => this.setState({
-        articles: response,
+        shows: response,
         name: "",
         location: "",
         duration: "",
@@ -104,6 +105,7 @@ class ShowsIndexContainer extends Component {
   }
 
   render() {
+    let current_user = this.state.current_user;
     let clicked = this.state.addClicked;
     let shows = this.state.shows.map(show => {
       return(
@@ -123,10 +125,11 @@ class ShowsIndexContainer extends Component {
       );
     });
     return(
-      <div className="shows">
+      <div className="small-8 group" id="show-index">
         <ShowForm
+        current_user={current_user}
         handleSubmit={this.handleSubmit}
-        handleTitleChange={this.handleTitleChange}
+        handleNameChange={this.handleNameChange}
         handleLocationChange={this.handleLocationChange}
         handleDateChange={this.handleDateChange}
         handleTimeChange={this.handleTimeChange}
@@ -135,7 +138,7 @@ class ShowsIndexContainer extends Component {
         handlePriceChange={this.handlePriceChange}
         handleAddClicked={this.handleAddClicked}
         clicked={clicked}/>
-        {shows}
+        {shows.reverse()}
         {this.props.children}
       </div>
     );

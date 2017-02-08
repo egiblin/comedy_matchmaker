@@ -7,6 +7,7 @@ import UsersIndexContainer from './user/containers/UsersIndexContainer';
 import UserShowContainer from './user/containers/UserShowContainer';
 import TeamsIndexContainer from './team/containers/TeamsIndexContainer';
 import TeamShowContainer from './team/containers/TeamShowContainer';
+import Root from './components/Root';
 
 let routes = (
   <Route path="/" component={Layout}>

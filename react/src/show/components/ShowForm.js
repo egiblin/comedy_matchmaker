@@ -3,7 +3,7 @@ import React from 'react';
 const ShowForm = props => {
   if (props.clicked){
     return(
-      <div className="row search">
+      <div className="small-6 blocks">
           <input id="add_show" type='submit' value="Actually, Nah Dude" className="btn" onClick={event => {event.preventDefault(), props.handleAddClicked();}} />
           <form>
             <div className="input-field col s3">

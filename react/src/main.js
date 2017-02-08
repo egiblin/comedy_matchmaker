@@ -6,8 +6,9 @@ import routes from './routes';
 import Root from './components/Root';
 
 let reactAppRender = (element) => {
+  let current_user = JSON.parse(document.getElementById('App').dataset.currentuser);
   ReactDOM.render(
-    <Root browserHistory={browserHistory} routes={routes} />,
+    <Root browserHistory={browserHistory} routes={routes} current_user={current_user}/>,
     element
   );
 };

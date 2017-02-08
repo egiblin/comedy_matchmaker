@@ -20,7 +20,7 @@ body {
    height: 100%;
    margin: 0;
    text-align: center;
-   background-image: url('http://imgur.com/gtzXSWZ');
+   background-image: url('http://i.imgur.com/i2WZ2xJ.jpg');
    background-repeat: round;
 }
 div#content, div#wrapper {
@@ -46,7 +46,17 @@ div#content, div#wrapper {
   background-color: #248F8D;
   text-align: center;
 }
+#showtile{
+  border-style: solid;
+  border-color: black;
+  border-radius: 0.5em;
+  background-color: inherit;
+}
 
+#show-index{
+  display: inline-grid;
+  background-color: inherit;
+}
 
 #main-tab-bar {
   width: 60em;
