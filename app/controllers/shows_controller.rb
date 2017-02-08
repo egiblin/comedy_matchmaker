@@ -1,6 +1,7 @@
 class ShowsController < ApplicationController
   def index
     @shows = Show.all.order("date DESC")
+    @current_user = current_user
     respond_to do |format|
       format.html
       format.json { render json: @shows }

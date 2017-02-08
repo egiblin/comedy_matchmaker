@@ -10,4 +10,25 @@ class Api::V1::TeamsController < ApplicationController
     @team = Team.find(params[:id])
     render json: @team
   end
+
+  def create
+    data = JSON.parse(request.body.read)
+    team = Team.new(name: data["name"], location: data["location"])
+    if team.save
+      flash[:notice] = "Team added successfully!"
+      teams = Team.all
+      render json: teams
+    else
+      flash[:notice] = team.errors.full_messages.to_sentence
+      teams = Team.all
+      render json: teams
+    end
+  end
+
+  def new
+    @team = Team.new
+  end
+
+
+
 end
