@@ -1,6 +1,10 @@
 class ShowsController < ApplicationController
   def index
     @shows = Show.all.order("date DESC")
+    respond_to do |format|
+      format.html
+      format.json { render json: @shows }
+    end
   end
 
   def show
@@ -12,7 +16,6 @@ class ShowsController < ApplicationController
         if show.name == @show.name
           team.users.each do |user|
             unless @performers.include?(user)
-              binding.pry
               @performers << user
             end
           end
