@@ -17,4 +17,5 @@ class User < ApplicationRecord
   has_many :shows, through: :usershows
   has_many :userteams
   has_many :teams, through: :userteams
+  has_many :submissions
 end

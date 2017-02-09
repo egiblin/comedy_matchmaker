@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170202155513) do
+ActiveRecord::Schema.define(version: 20170209171046) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,18 @@ ActiveRecord::Schema.define(version: 20170202155513) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "show_photo"
+  end
+
+  create_table "submissions", force: :cascade do |t|
+    t.text    "pitch"
+    t.boolean "improv",   default: false
+    t.boolean "selected", default: false
+    t.integer "user_id",                  null: false
+    t.integer "show_id",                  null: false
+    t.integer "team_id"
+    t.index ["show_id"], name: "index_submissions_on_show_id", using: :btree
+    t.index ["team_id"], name: "index_submissions_on_team_id", using: :btree
+    t.index ["user_id"], name: "index_submissions_on_user_id", using: :btree
   end
 
   create_table "teams", force: :cascade do |t|

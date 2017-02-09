@@ -11,7 +11,13 @@ class Api::V1::ShowsController < ApplicationController
 
   def show
     @show = Show.find(params[:id])
-    render json: @show
+    @current_user = current_user
+    @teams = current_user.teams
+    @submissions = @show.submissions
+    @users = User.all
+    respond_to do |format|
+      format.json  { render :json => {:show => @show, :teams => @teams, :current_user => @current_user, :submissions => @submissions, :users => @users }}
+    end
   end
 
   def create

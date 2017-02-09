@@ -81,9 +81,10 @@ class ShowsIndexContainer extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
+    let creator_name = (this.state.current_user.first_name + " " + this.state.current_user.last_name);
     let fetchBody = { name: this.state.name, location: this.state.location,
     duration: this.state.duration, time: this.state.time,
-    date: this.state.date, price: this.state.price, slots: this.state.slots, creator: this.state.current_user };
+    date: this.state.date, price: this.state.price, slots: this.state.slots, creator: creator_name };
     let newShows = [];
     fetch('/api/v1/shows',
       { method: "POST", credentials: 'same-origin',
