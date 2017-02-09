@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 
   root "shows#index"
 
-  resources :shows
+  resources :shows do
+    resources :submissions
+  end
 
   resources :users
 
@@ -15,7 +17,9 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :teams
       resources :users
-      resources :shows
+      resources :shows do
+        resources :submissions
+      end
     end
   end
 

@@ -4,10 +4,11 @@ import { Link } from 'react-router';
 
 const ShowTile = ({ id, name, location, image_url, slots, date, time, duration, creator, price }) => {
     return(
-      <div className="small-6 block" id="showtile">
-        <h1><Link to={`/shows/${id}`}> {name} </Link></h1>
-        <h3>Location: {location} </h3>
-        <img src={image_url} />
+      <div className="w3-card" id="showtile">
+        <h1><Link to={`/shows/${id}`} id="link-text"> {name} </Link></h1>
+        <h5 id="location-text">Location: {location} </h5>
+        <img width="300" height="300" src={image_url} /><br />
+        <h4>Slots: {slots} </h4>
       </div>
     );
   };

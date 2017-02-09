@@ -3,21 +3,30 @@ class Api::V1::ShowsController < ApplicationController
 
   def index
     @shows = Show.all
-    render json: @shows
+    @current_user = current_user
+    respond_to do |format|
+      format.json  { render :json => {:shows => @shows, :current_user => @current_user }}
+    end
   end
 
   def show
     @show = Show.find(params[:id])
-    render json: @show
+    @current_user = current_user
+    @teams = current_user.teams
+    @submissions = @show.submissions
+    @users = User.all
+    respond_to do |format|
+      format.json  { render :json => {:show => @show, :teams => @teams, :current_user => @current_user, :submissions => @submissions, :users => @users }}
+    end
   end
 
   def create
     data = JSON.parse(request.body.read)
-    binding.pry
     show = Show.new(name: data["name"], location: data["location"], date: data["date"],
     time: data["time"], duration: data["duration"], slots: data["slots"], creator: current_user,
     price: data["price"])
     if show.save
+      Usershow.create(user: current_user, show: show)
       flash[:notice] = "Show added successfully!"
       shows = Show.all
       render json: shows

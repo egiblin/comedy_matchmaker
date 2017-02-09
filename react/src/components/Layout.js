@@ -6,9 +6,6 @@ import TabBar from './TabBar.js';
 const Layout = (props) => {
   return(
     <div>
-      <span>
-      <TopBar />
-      </span>
       <div id="wrapper">
         <div id="content">
         <TabBar />

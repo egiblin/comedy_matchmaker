@@ -29,10 +29,10 @@ class ShowsIndexContainer extends Component {
   }
 
   componentDidMount() {
-    fetch('/api/v1/shows.json')
+    fetch('/api/v1/shows.json', {credentials: 'same-origin'})
       .then((response) => response.json())
       .then((responseData) => {
-        this.setState({shows: responseData});
+        this.setState({shows: responseData.shows, current_user: responseData.current_user});
       });
   }
 
@@ -65,7 +65,7 @@ class ShowsIndexContainer extends Component {
   }
 
   handleDurationChange(event) {
-    let newDuration = event.target.value;
+    let newDuration = parseFloat(event.target.value);
     this.setState({ duration: newDuration });
   }
 
@@ -81,12 +81,13 @@ class ShowsIndexContainer extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
+    let creator_name = (this.state.current_user.first_name + " " + this.state.current_user.last_name);
     let fetchBody = { name: this.state.name, location: this.state.location,
     duration: this.state.duration, time: this.state.time,
-    date: this.state.date, price: this.state.price, slots: this.state.slots, creator: this.state.current_user };
+    date: this.state.date, price: this.state.price, slots: this.state.slots, creator: creator_name };
     let newShows = [];
     fetch('/api/v1/shows',
-      { method: "POST",
+      { method: "POST", credentials: 'same-origin',
       body: JSON.stringify(fetchBody) })
       .then(function(response) {
         newShows = response.json();
@@ -125,7 +126,7 @@ class ShowsIndexContainer extends Component {
       );
     });
     return(
-      <div className="small-8 group" id="show-index">
+      <div className="small-8 group shows" id="show-index">
         <ShowForm
         current_user={current_user}
         handleSubmit={this.handleSubmit}
@@ -138,6 +139,7 @@ class ShowsIndexContainer extends Component {
         handlePriceChange={this.handlePriceChange}
         handleAddClicked={this.handleAddClicked}
         clicked={clicked}/>
+        <h1>Upcoming Shows</h1>
         {shows.reverse()}
         {this.props.children}
       </div>

@@ -3,18 +3,25 @@ class Api::V1::TeamsController < ApplicationController
 
   def index
     @teams = Team.all
-    render json: @teams
+    @current_user = current_user
+    respond_to do |format|
+      format.json  { render :json => {:teams => @teams, :current_user => @current_user }}
+    end
   end
 
   def show
     @team = Team.find(params[:id])
-    render json: @team
+    @users = @team.users
+    respond_to do |format|
+      format.json  { render :json => {:team => @team, :users => @users }}
+    end
   end
 
   def create
     data = JSON.parse(request.body.read)
     team = Team.new(name: data["name"], location: data["location"])
     if team.save
+      Userteam.create(user: current_user, team: team)
       flash[:notice] = "Team added successfully!"
       teams = Team.all
       render json: teams

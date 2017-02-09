@@ -26,11 +26,12 @@ class TeamShowContainer extends Component {
       return(
         <div className="teams">
         <TeamShow
-        key={this.state.data.id}
-        id={this.state.data.id}
-        name={this.state.data.name}
-        location={this.state.data.location}
-        image_url={this.state.data.team_photo.url}
+        key={this.state.data.team.id}
+        id={this.state.data.team.id}
+        name={this.state.data.team.name}
+        location={this.state.data.team.location}
+        image_url={this.state.data.team.team_photo.url}
+        users={this.state.data.users}
         />
         </div>
       );
