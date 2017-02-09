@@ -26,11 +26,12 @@ class UserShowContainer extends Component {
       return(
         <div className="users">
         <UserShow
-        key={this.state.data.id}
-        id={this.state.data.id}
-        first_name={this.state.data.first_name}
-        last_name={this.state.data.last_name}
-        image_url={this.state.data.avatar.url}
+        key={this.state.data.user.id}
+        id={this.state.data.user.id}
+        first_name={this.state.data.user.first_name}
+        last_name={this.state.data.user.last_name}
+        image_url={this.state.data.user.avatar.url}
+        users={this.state.data.users}
         />
         </div>
       );

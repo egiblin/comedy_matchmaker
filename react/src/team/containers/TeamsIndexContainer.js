@@ -9,6 +9,7 @@ class TeamsIndexContainer extends Component {
       teams: [],
       name: "",
       location: "",
+      current_user: "",
       addClicked: false
     };
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -18,10 +19,10 @@ class TeamsIndexContainer extends Component {
   }
 
   componentDidMount() {
-    fetch('/api/v1/teams.json')
+    fetch('/api/v1/teams.json', {credentials: 'same-origin'})
       .then((response) => response.json())
       .then((responseData) => {
-        this.setState({teams: responseData});
+        this.setState({teams: responseData.teams, current_user: responseData.current_user});
       });
   }
 
@@ -46,17 +47,20 @@ class TeamsIndexContainer extends Component {
   handleSubmit(event) {
     event.preventDefault();
     let fetchBody = { name: this.state.name, location: this.state.location };
+    let current_user = this.state.current_user;
     let newTeams = [];
     fetch('/api/v1/teams',
-      { method: "POST",
+      { method: "POST", credentials: 'same-origin',
       body: JSON.stringify(fetchBody) })
       .then(function(response) {
         newTeams = response.json();
+        current_user.teams << newTeams;
         return newTeams;
       }).then((response) => this.setState({
         teams: response,
         name: "",
         location: "",
+        users: "",
         addClicked: false
       }));
   }
@@ -71,6 +75,7 @@ class TeamsIndexContainer extends Component {
           name={team.name}
           location={team.location}
           image_url={team.team_photo.url}
+          users={team.users}
         />
       );
     });

@@ -46,17 +46,67 @@ div#content, div#wrapper {
   background-color: #248F8D;
   text-align: center;
 }
-#showtile{
-  border-style: solid;
+
+#link-text {
+  color: purple;
+}
+
+.w3-card {
   border-color: black;
-  border-radius: 0.5em;
-  background-color: inherit;
+}
+
+#teamtile {
+  position: relative;
+  float: left;
+  background-position: 50% 50%;
+  background-repeat:   no-repeat;
+  background-size:     cover;
+  margin: 0.5em;
+}
+#teamtile img {
+   width:  200px;
+   height: 200px;
+   border-radius: 15px;
+   box-shadow: 5px 5px #3C3C3C;
+}
+#usertile {
+  position: relative;
+  float: left;
+  background-position: 50% 50%;
+  background-repeat:   no-repeat;
+  background-size:     cover;
+  margin: 0.5em;
+}
+#usertile img {
+   width:  200px;
+   height: 200px;
+   border-radius: 15px;
+   box-shadow: 5px 5px #3C3C3C;
+}
+
+#showtile {
+  position: relative;
+  float: left;
+  background-position: 50% 50%;
+  background-repeat:   no-repeat;
+  background-size:     cover;
+  margin: 0.5em;
+}
+
+#showtile img {
+   width:  200px;
+   height: 200px;
+   border-radius: 15px;
+   box-shadow: 5px 5px #3C3C3C;
 }
 
 #show-index{
-  display: inline-grid;
-  background-color: inherit;
-}
+  display: inline-block;
+   list-style: none;
+   width: 100%;
+   clear: both;
+   margin-left: 0.4%;
+ }
 
 #main-tab-bar {
   width: 60em;
@@ -66,6 +116,10 @@ div#content, div#wrapper {
 }
 li {
   list-style: none;
+}
+
+.top-bar{
+  opacity: 0.8;
 }
 
 img#team-show-photos {
@@ -100,28 +154,6 @@ li.main-page-items{
   align: center;
 }
 
-#hover1, #hover1 li {
-  margin: 0;
-}
-
-.field, .actions {
-  margin: 0.5em;
-  margin-left: 2em;
-  margin-right: 2em;
-}
-
-h3#display-team-name {
-  text-align: center;
-  font-size: 3em;
-}
-
-#login {
-  color: #E84A5F;
-}
-
-.navbar-link {
-  font-size: 1.4em;
-}
 
 body, .logo, .navbar-link {
   font-family: 'Quintessential', cursive;
@@ -129,8 +161,4 @@ body, .logo, .navbar-link {
 h1 {
   text-align: center;
   font-family: 'Quintessential', cursive;
-}
-
-#responsive-menu {
-  float: right;
 }

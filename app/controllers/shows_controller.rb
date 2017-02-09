@@ -4,7 +4,7 @@ class ShowsController < ApplicationController
     @current_user = current_user
     respond_to do |format|
       format.html
-      format.json { render json: @shows }
+      format.json { render json: {:shows => @shows, :current_user => @current_user }}
     end
   end
 
