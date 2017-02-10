@@ -92,26 +92,38 @@ class TeamsIndexContainer extends Component {
         />
       );
     });
-    return(
-      <div>
-        <div className="row small-up-2 medium-up-3 teams" id="team-index">
-          <br />
-          <TeamForm
-          handleSubmit={this.handleSubmit}
-          handleNameChange={this.handleNameChange}
-          handleLocationChange={this.handleLocationChange}
-          handleAddClicked={this.handleAddClicked}
-          clicked={clicked}/>
-          <h1 className="indextitle">Your Teams</h1>
-          {user_teams}
+    if (this.state.current_user !== undefined && this.state.current_user !== null) {
+      return(
+        <div>
+          <div className="row small-up-2 medium-up-3 teams" id="team-index">
+            <br />
+            <TeamForm
+            handleSubmit={this.handleSubmit}
+            handleNameChange={this.handleNameChange}
+            handleLocationChange={this.handleLocationChange}
+            handleAddClicked={this.handleAddClicked}
+            clicked={clicked}/>
+            <h1 className="indextitle">Your Teams</h1>
+            {user_teams}
+          </div>
+          <div className="row small-up-2 medium-up-3 teams" id="team-index">
+            <h1 className="indextitle">All Teams</h1>
+            {teams.reverse()}
+            {this.props.children}
+          </div>
         </div>
-        <div className="row small-up-2 medium-up-3 teams" id="team-index">
-          <h1 className="indextitle">All Teams</h1>
-          {teams.reverse()}
-          {this.props.children}
+      );
+    } else {
+      return(
+        <div>
+          <div className="row small-up-2 medium-up-3 teams" id="team-index">
+            <h1 className="indextitle">All Teams</h1>
+            {teams.reverse()}
+            {this.props.children}
+          </div>
         </div>
-      </div>
-    );
+      );
+    }
   }
 }
 

@@ -4,7 +4,9 @@ class Api::V1::ShowsController < ApplicationController
   def index
     @shows = Show.all
     @current_user = current_user
-    @user_shows = @current_user.shows
+    if @current_user
+      @user_shows = @current_user.shows
+    end
     respond_to do |format|
       format.json  { render :json => {:shows => @shows, :current_user => @current_user, :user_shows => @user_shows }}
     end

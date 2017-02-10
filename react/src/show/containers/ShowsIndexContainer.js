@@ -111,7 +111,7 @@ class ShowsIndexContainer extends Component {
     let current_user = this.state.current_user;
     let clicked = this.state.addClicked;
     let user_shows =[];
-    if (current_user !== undefined){
+    if (current_user !== undefined && current_user !== null){
       user_shows = this.state.user_shows.map(show => {
         return(
           <ShowTile
@@ -147,32 +147,44 @@ class ShowsIndexContainer extends Component {
         />
       );
     });
-    return(
-      <div>
-      <div className="row small-up-2 medium-up-3 shows" id="show-index">
-        <br />
-        <ShowForm
-        current_user={current_user}
-        handleSubmit={this.handleSubmit}
-        handleNameChange={this.handleNameChange}
-        handleLocationChange={this.handleLocationChange}
-        handleDateChange={this.handleDateChange}
-        handleTimeChange={this.handleTimeChange}
-        handleDurationChange={this.handleDurationChange}
-        handleSlotsChange={this.handleSlotsChange}
-        handlePriceChange={this.handlePriceChange}
-        handleAddClicked={this.handleAddClicked}
-        clicked={clicked}/>
-        <h1 className="indextitle">Your Upcoming Shows</h1>
-        {user_shows}
-      </div>
-      <div className="row small-up-2 medium-up-3 shows" id="show-index">
-        <h1 className="indextitle">All Upcoming Shows</h1>
-        {shows.reverse()}
-        {this.props.children}
-      </div>
-      </div>
-    );
+    if (current_user !== undefined && current_user !== null) {
+      return(
+        <div>
+        <div className="row small-up-2 medium-up-3 shows" id="show-index">
+          <br />
+          <ShowForm
+          current_user={current_user}
+          handleSubmit={this.handleSubmit}
+          handleNameChange={this.handleNameChange}
+          handleLocationChange={this.handleLocationChange}
+          handleDateChange={this.handleDateChange}
+          handleTimeChange={this.handleTimeChange}
+          handleDurationChange={this.handleDurationChange}
+          handleSlotsChange={this.handleSlotsChange}
+          handlePriceChange={this.handlePriceChange}
+          handleAddClicked={this.handleAddClicked}
+          clicked={clicked}/>
+          <h1 className="indextitle">Your Upcoming Shows</h1>
+          {user_shows}
+        </div>
+        <div className="row small-up-2 medium-up-3 shows" id="show-index">
+          <h1 className="indextitle">All Upcoming Shows</h1>
+          {shows.reverse()}
+          {this.props.children}
+        </div>
+        </div>
+      );
+    } else {
+      return(
+        <div>
+          <div className="row small-up-2 medium-up-3 shows" id="show-index">
+            <h1 className="indextitle">All Upcoming Shows</h1>
+            {shows.reverse()}
+            {this.props.children}
+          </div>
+        </div>
+      );
+    }
   }
 }
 
