@@ -19,72 +19,102 @@ html {height: 100%}
 body {
    height: 100%;
    margin: 0;
-   text-align: center;
    background-image: url('http://i.imgur.com/i2WZ2xJ.jpg');
    background-repeat: round;
-}
+   font-family: 'Josefin Sans', sans-serif;
+ }
 div#content, div#wrapper {
   width: 75em;
   margin: 0 auto;
-  height: 100%;
   text-align: left;
   padding-bottom: 20em;
+  opacity: 1;
+  display: block;
+  opacity: 0.98;
+
 }
+h1{
+  font-family: 'Covered By Your Grace', cursive;
+}
+
 #main-user-button, #main-team-button, #main-show-button{
   width: 25em;
 }
 
+.button#hover{
+  background-color: #536C8D
+}
+.users img{
+  opacity: 1;
+}
+
 #main-user-button, .users {
-  background-color: #B2D5BA;
+  background-color: #575A65;
+  text-align: center;
+  box-shadow: inset 0 0 100px #575A65;
+}
+#main-show-button, .shows {
+  background-color: #6C6368;
   text-align: center;
 }
 #main-team-button, .teams {
-  background-color: #61ADA0;
+  background-color: #838689;
   text-align: center;
 }
-#main-show-button, .shows {
-  background-color: #248F8D;
-  text-align: center;
+.column{
+  border-color: black;
+  border-width: thin;
+}
+#showform, #teamform{
+  margin: 0 auto;
 }
 
 #link-text {
-  color: purple;
+  color: #1D2E4C;
 }
 
 .w3-card {
   border-color: black;
 }
 
-#teamtile {
-  position: relative;
-  float: left;
-  background-position: 50% 50%;
-  background-repeat:   no-repeat;
-  background-size:     cover;
-  margin: 0.5em;
-}
-#teamtile img {
-   width:  200px;
-   height: 200px;
-   border-radius: 15px;
-   box-shadow: 5px 5px #3C3C3C;
-}
-#usertile {
-  position: relative;
-  float: left;
-  background-position: 50% 50%;
-  background-repeat:   no-repeat;
-  background-size:     cover;
-  margin: 0.5em;
-}
-#usertile img {
-   width:  200px;
-   height: 200px;
-   border-radius: 15px;
-   box-shadow: 5px 5px #3C3C3C;
+.indextitle{
+  font-size: 5em;
 }
 
-#showtile {
+#wrapper #content #teamtile {
+  position: relative;
+  float: left;
+  background-position: 50% 50%;
+  background-repeat:   no-repeat;
+  background-size:     cover;
+  margin: 0.5em;
+}
+#wrapper #content #teamtile img {
+   width:  200px;
+   height: 200px;
+   border-radius: 15px;
+   box-shadow: 5px 5px #3C3C3C;
+   text-align: left;
+}
+#wrapper #content #usertile {
+  position: relative;
+  float: left;
+  background-position: 50% 50%;
+  background-repeat:   no-repeat;
+  background-size:     cover;
+  margin: 0.5em;
+  opacity: 1;
+}
+#wrapper #content #usertile img {
+   width:  200px;
+   height: 200px;
+   border-radius: 15px;
+   box-shadow: 5px 5px #3C3C3C;
+   text-align: left;
+
+}
+
+#wrapper #content #showtile {
   position: relative;
   float: left;
   background-position: 50% 50%;
@@ -98,9 +128,11 @@ div#content, div#wrapper {
    height: 200px;
    border-radius: 15px;
    box-shadow: 5px 5px #3C3C3C;
+   text-align: left;
+
 }
 
-#show-index{
+#show-index, #team-index, #user-index{
   display: inline-block;
    list-style: none;
    width: 100%;
@@ -122,23 +154,9 @@ li {
   opacity: 0.8;
 }
 
-img#team-show-photos {
-  display: block;
-  margin: 0 auto;
-}
-
 ul#adding-columns {
   font-size: 2em;
   text-align: center;
-}
-
-li.main-page-items{
-  font-size: 2em;
-  text-align: center;
-  border-color: black;
-  border-width: 50px;
-  border-color: red;
-  position: relative;
 }
 
 #main-headline{
@@ -147,18 +165,9 @@ li.main-page-items{
   padding-top: 1em;
   padding-right: 1em;
   padding-left: 1em;
-  font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 #show_list {
   align: center;
-}
-
-
-body, .logo, .navbar-link {
-  font-family: 'Quintessential', cursive;
-}
-h1 {
-  text-align: center;
-  font-family: 'Quintessential', cursive;
 }

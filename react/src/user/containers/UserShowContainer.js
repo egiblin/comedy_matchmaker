@@ -20,14 +20,12 @@ class UserShowContainer extends Component {
       });
   }
   render() {
-    debugger;
     if (this.state.data.length === 0) {
       return(
         <div></div>
       );
     }
     else {
-      debugger;
       let shows = this.state.shows.map(show =>{
         return(
           <div>

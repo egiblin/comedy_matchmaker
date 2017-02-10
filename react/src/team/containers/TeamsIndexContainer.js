@@ -93,18 +93,23 @@ class TeamsIndexContainer extends Component {
       );
     });
     return(
-      <div className="teams">
-        <TeamForm
-        handleSubmit={this.handleSubmit}
-        handleNameChange={this.handleNameChange}
-        handleLocationChange={this.handleLocationChange}
-        handleAddClicked={this.handleAddClicked}
-        clicked={clicked}/>
-        <h1>Your Teams</h1>
-        {user_teams}
-        <h1>All Teams</h1>
-        {teams.reverse()}
-        {this.props.children}
+      <div>
+        <div className="row small-up-2 medium-up-3 teams" id="team-index">
+          <br />
+          <TeamForm
+          handleSubmit={this.handleSubmit}
+          handleNameChange={this.handleNameChange}
+          handleLocationChange={this.handleLocationChange}
+          handleAddClicked={this.handleAddClicked}
+          clicked={clicked}/>
+          <h1 className="indextitle">Your Teams</h1>
+          {user_teams}
+        </div>
+        <div className="row small-up-2 medium-up-3 teams" id="team-index">
+          <h1 className="indextitle">All Teams</h1>
+          {teams.reverse()}
+          {this.props.children}
+        </div>
       </div>
     );
   }

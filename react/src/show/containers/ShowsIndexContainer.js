@@ -114,9 +114,19 @@ class ShowsIndexContainer extends Component {
     if (current_user !== undefined){
       user_shows = this.state.user_shows.map(show => {
         return(
-          <div>
-            <h3><Link to={`/shows/${show.id}`} id="link-text"> {show.name} </Link></h3>
-          </div>
+          <ShowTile
+            key={show.id}
+            id={show.id}
+            name={show.name}
+            location={show.location}
+            image_url={show.show_photo.url}
+            slots={show.slots}
+            date={show.date}
+            time={show.time}
+            duration={show.duration}
+            creator={show.creator}
+            price={show.price}
+          />
         );
       });
     }
@@ -138,7 +148,9 @@ class ShowsIndexContainer extends Component {
       );
     });
     return(
-      <div className="small-8 group shows" id="show-index">
+      <div>
+      <div className="row small-up-2 medium-up-3 shows" id="show-index">
+        <br />
         <ShowForm
         current_user={current_user}
         handleSubmit={this.handleSubmit}
@@ -151,11 +163,14 @@ class ShowsIndexContainer extends Component {
         handlePriceChange={this.handlePriceChange}
         handleAddClicked={this.handleAddClicked}
         clicked={clicked}/>
-        <h1>Your Upcoming Shows</h1>
+        <h1 className="indextitle">Your Upcoming Shows</h1>
         {user_shows}
-        <h1>Upcoming Shows</h1>
+      </div>
+      <div className="row small-up-2 medium-up-3 shows" id="show-index">
+        <h1 className="indextitle">All Upcoming Shows</h1>
         {shows.reverse()}
         {this.props.children}
+      </div>
       </div>
     );
   }
