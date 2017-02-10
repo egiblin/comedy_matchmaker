@@ -3,8 +3,8 @@ import React from 'react';
 const ShowForm = props => {
   if (props.clicked){
     return(
-      <div className="small-6 blocks">
-          <input id="add_show" type='submit' value="Actually, Nah Dude" className="btn" onClick={event => {event.preventDefault(), props.handleAddClicked();}} />
+      <div className="small-3 blocks" id="showform">
+          <input id="add_show" type='submit' value="Actually, Nah Dude" className="small button round" onClick={event => {event.preventDefault(), props.handleAddClicked();}} />
           <form>
             <div className="input-field col s3">
               <input type="text" name="name" placeholder="Enter name here..." onChange={props.handleNameChange}/>
@@ -42,7 +42,7 @@ const ShowForm = props => {
             </div>
             <div className="row">
               <div className="col s2 offset-s5 center-align">
-                <input id="make_show" className="btn" type="submit" value="Add Show" name="Submit" onClick={props.handleSubmit}/>
+                <input id="make_show" className="small button round" type="submit" value="Add Show" name="Submit" onClick={props.handleSubmit}/>
               </div>
             </div>
           </form>
@@ -51,7 +51,7 @@ const ShowForm = props => {
   } else {
     return(
     <div className="row search">
-      <input id="add-article" type='submit' value="Add New Show" className="btn" onClick={event => {event.preventDefault(), props.handleAddClicked();}} />
+      <input id="add-article" type='submit' value="Add New Show" className="small button round" onClick={event => {event.preventDefault(), props.handleAddClicked();}} />
     </div>
   );}
 };

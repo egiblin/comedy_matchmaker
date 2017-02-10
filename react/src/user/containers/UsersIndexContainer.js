@@ -30,7 +30,8 @@ class UsersIndexContainer extends Component {
       );
     });
     return(
-      <div className="users">
+      <div className="row small-up-2 medium-up-3 users" id="user-index">
+        <h1 className="indextitle">All Performers</h1>
         {users}
         {this.props.children}
       </div>

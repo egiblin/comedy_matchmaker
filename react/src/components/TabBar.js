@@ -8,7 +8,7 @@ class TabBar extends Component {
 
   render() {
     return (
-      <div id="main-tab-bar" style={{width: '100%', backgroundColor: '#EDF6EE', display: 'inline-block'}}>
+      <div id="main-tab-bar" style={{width: '100%', display: 'inline-block'}}>
         <div id="main-user-button" style={{float: 'left', padding: '1em'}} onClick={() => {
           browserHistory.push('/users');
         }}>Users

@@ -4,8 +4,11 @@ class Api::V1::ShowsController < ApplicationController
   def index
     @shows = Show.all
     @current_user = current_user
+    if @current_user
+      @user_shows = @current_user.shows
+    end
     respond_to do |format|
-      format.json  { render :json => {:shows => @shows, :current_user => @current_user }}
+      format.json  { render :json => {:shows => @shows, :current_user => @current_user, :user_shows => @user_shows }}
     end
   end
 
@@ -22,9 +25,11 @@ class Api::V1::ShowsController < ApplicationController
 
   def create
     data = JSON.parse(request.body.read)
+    creator = (current_user.first_name + " " + current_user.last_name)
     show = Show.new(name: data["name"], location: data["location"], date: data["date"],
-    time: data["time"], duration: data["duration"], slots: data["slots"], creator: current_user,
+    time: data["time"], duration: data["duration"], slots: data["slots"], creator: creator,
     price: data["price"])
+    binding.pry
     if show.save
       Usershow.create(user: current_user, show: show)
       flash[:notice] = "Show added successfully!"
