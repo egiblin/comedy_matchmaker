@@ -10,7 +10,8 @@ class TeamsIndexContainer extends Component {
       name: "",
       location: "",
       current_user: "",
-      addClicked: false
+      addClicked: false,
+      user_teams: []
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleNameChange = this.handleNameChange.bind(this);
@@ -22,7 +23,7 @@ class TeamsIndexContainer extends Component {
     fetch('/api/v1/teams.json', {credentials: 'same-origin'})
       .then((response) => response.json())
       .then((responseData) => {
-        this.setState({teams: responseData.teams, current_user: responseData.current_user});
+        this.setState({teams: responseData.teams, current_user: responseData.current_user, user_teams: responseData.user_teams});
       });
   }
 
@@ -67,6 +68,18 @@ class TeamsIndexContainer extends Component {
 
   render() {
     let clicked = this.state.addClicked;
+    let user_teams = this.state.user_teams.map(team => {
+      return(
+        <TeamTile
+          key={team.id}
+          id={team.id}
+          name={team.name}
+          location={team.location}
+          image_url={team.team_photo.url}
+          users={team.users}
+        />
+      );
+    });
     let teams = this.state.teams.map(team => {
       return(
         <TeamTile
@@ -87,6 +100,9 @@ class TeamsIndexContainer extends Component {
         handleLocationChange={this.handleLocationChange}
         handleAddClicked={this.handleAddClicked}
         clicked={clicked}/>
+        <h1>Your Teams</h1>
+        {user_teams}
+        <h1>All Teams</h1>
         {teams.reverse()}
         {this.props.children}
       </div>

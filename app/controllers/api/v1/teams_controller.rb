@@ -4,8 +4,9 @@ class Api::V1::TeamsController < ApplicationController
   def index
     @teams = Team.all
     @current_user = current_user
+    @user_teams = @current_user.teams
     respond_to do |format|
-      format.json  { render :json => {:teams => @teams, :current_user => @current_user }}
+      format.json  { render :json => {:teams => @teams, :current_user => @current_user, :user_teams => @user_teams }}
     end
   end
 

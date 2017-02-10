@@ -9,8 +9,10 @@ class Api::V1::UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @users = User.all
+    @teams = @user.teams
+    @shows = @user.shows
     respond_to do |format|
-      format.json  { render :json => {:user => @user, :users => @users }}
+      format.json  { render :json => {:user => @user, :users => @users, :teams => @teams, :shows => @shows }}
     end
   end
 
