@@ -21,4 +21,8 @@ class Api::V1::SubmissionsController < ApplicationController
     @submission = Submission.new
   end
 
+  def update
+    
+  end
+
 end

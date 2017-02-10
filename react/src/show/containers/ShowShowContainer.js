@@ -52,9 +52,17 @@ class ShowShowContainer extends Component {
     this.setState({ improv: newImprov });
   }
 
-  handleSelectedChange(event){
-    let newSelected = event.target.value;
-    this.setState({ selected: newSelected });
+  handleSelectedChange(submission, event){
+    event.preventDefault();
+    if (this.state.selected === false){
+      this.setState({selected: true});
+    } else {
+      this.setState({selected: false});
+    }
+    let fetchBody = {selected: this.state.selected};
+    fetch(`/api/v1/shows/${this.props.params.id}/submissions/.json`,
+      { method: "PUT", credentials: 'same-origin',
+      body: JSON.stringify(fetchBody) })
   }
 
   handleTeamChange(event) {
@@ -89,6 +97,7 @@ class ShowShowContainer extends Component {
     let teams = this.state.teams;
     let improv = this.state.improv;
     let users = this.state.users;
+    let handleSelectedChange = this.handleSelectedChange;
     let user_ids = {};
     if (users.length > 0) {
       for(let i = 0; i < users.length; i++) {
@@ -106,6 +115,8 @@ class ShowShowContainer extends Component {
           selected={submission.selected}
           team={submission.team}
           user_ids={user_ids}
+          show_admin={false}
+          handleSelectedChange={handleSelectedChange}
         />
       );
     });
@@ -124,10 +135,10 @@ class ShowShowContainer extends Component {
           handleSubmit={this.handleSubmit}
           handlePitchChange={this.handlePitchChange}
           handleImprovChange={this.handleImprovChange}
-          handleSelectedChange={this.handleSelectedChange}
           handleTeamChange={this.handleTeamChange}
           handleAddClicked={this.handleAddClicked}
-          clicked={clicked}/>
+          clicked={clicked}
+          />
         <ShowShow
           key={this.state.data.id}
           id={this.state.data.id}
@@ -147,6 +158,22 @@ class ShowShowContainer extends Component {
       );
     }
     else {
+      submissions = this.state.submissions.map(submission => {
+        return(
+          <SubmissionTile
+            key={submission.id}
+            id={submission.id}
+            user_id={submission.user_id}
+            pitch={submission.pitch}
+            improv={submission.improv}
+            selected={submission.selected}
+            team={submission.team}
+            user_ids={user_ids}
+            show_admin={true}
+            handleSelectedChange={handleSelectedChange}
+          />
+        );
+      });
       return(
         <div className="shows">
         <ShowShow
