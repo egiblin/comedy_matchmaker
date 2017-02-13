@@ -20,7 +20,7 @@ body {
    height: 100%;
    margin: 0;
    background-image: url('http://i.imgur.com/i2WZ2xJ.jpg');
-   background-repeat: round;
+   background-repeat: repeat; 
    font-family: 'Josefin Sans', sans-serif;
  }
 div#content, div#wrapper {
@@ -31,7 +31,7 @@ div#content, div#wrapper {
   opacity: 1;
   display: block;
   opacity: 0.98;
-
+  height: 100%;
 }
 h1{
   font-family: 'Covered By Your Grace', cursive;
@@ -39,6 +39,11 @@ h1{
 
 #main-user-button, #main-team-button, #main-show-button{
   width: 25em;
+}
+
+.show img{
+  width: 500px;
+  float: left;
 }
 
 .button#hover{
