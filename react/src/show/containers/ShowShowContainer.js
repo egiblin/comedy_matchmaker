@@ -2,6 +2,7 @@ import React, { Component }  from 'react';
 import ShowShow from '../components/ShowShow';
 import SubmissionForm from '../components/SubmissionForm';
 import SubmissionTile from '../components/SubmissionTile';
+import SubmissionSelectContainer from './submissions/containers/SubmissionSelectContainer';
 
 class ShowShowContainer extends Component {
   constructor(props) {
@@ -62,7 +63,7 @@ class ShowShowContainer extends Component {
     let fetchBody = {selected: this.state.selected};
     fetch(`/api/v1/shows/${this.props.params.id}/submissions/.json`,
       { method: "PUT", credentials: 'same-origin',
-      body: JSON.stringify(fetchBody) })
+      body: JSON.stringify(fetchBody) });
   }
 
   handleTeamChange(event) {
@@ -159,8 +160,10 @@ class ShowShowContainer extends Component {
     }
     else {
       submissions = this.state.submissions.map(submission => {
+        let id = submission.user_id;
+        let name = user_ids[id];
         return(
-          <SubmissionTile
+          <SubmissionSelectContainer
             key={submission.id}
             id={submission.id}
             user_id={submission.user_id}
@@ -170,6 +173,7 @@ class ShowShowContainer extends Component {
             team={submission.team}
             user_ids={user_ids}
             show_admin={true}
+            name={name}
             handleSelectedChange={handleSelectedChange}
           />
         );

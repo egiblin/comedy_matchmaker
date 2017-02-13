@@ -24,9 +24,9 @@ ActiveRecord::Schema.define(version: 20170209171046) do
     t.integer  "slots",      null: false
     t.string   "creator",    null: false
     t.string   "price",      null: false
+    t.string   "show_photo", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string   "show_photo"
   end
 
   create_table "submissions", force: :cascade do |t|
@@ -43,8 +43,8 @@ ActiveRecord::Schema.define(version: 20170209171046) do
 
   create_table "teams", force: :cascade do |t|
     t.string "name",       null: false
+    t.string "team_photo", null: false
     t.string "location"
-    t.string "team_photo"
   end
 
   create_table "teamshows", force: :cascade do |t|

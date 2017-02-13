@@ -48,6 +48,10 @@ h1{
   opacity: 1;
 }
 
+.orbit-image{
+  width: 300px;
+  height: 300px;
+}
 #main-user-button, .users {
   background-color: #575A65;
   text-align: center;
