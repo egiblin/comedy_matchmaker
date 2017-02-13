@@ -1,6 +1,6 @@
 class Team < ApplicationRecord
   validates :name, presence: true
-  mount_uploader :team_photo, TeamPhotoUploader
+  validates :team_photo, presence: true
 
   has_many :teamshows
   has_many :shows, through: :teamshows

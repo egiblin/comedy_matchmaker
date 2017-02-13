@@ -9,6 +9,7 @@ class CreateShows < ActiveRecord::Migration[5.0]
       t.integer :slots, null: false
       t.string :creator, null: false
       t.string :price, null: false
+      t.string :show_photo, null: false
 
       t.timestamps
     end
