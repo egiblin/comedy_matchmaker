@@ -11,10 +11,12 @@ class TeamsIndexContainer extends Component {
       location: "",
       current_user: "",
       addClicked: false,
+      team_photo: "",
       user_teams: []
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleNameChange = this.handleNameChange.bind(this);
+    this.handleImageChange = this.handleImageChange.bind(this);
     this.handleLocationChange = this.handleLocationChange.bind(this);
     this.handleAddClicked = this.handleAddClicked.bind(this);
   }
@@ -40,6 +42,11 @@ class TeamsIndexContainer extends Component {
     this.setState({ name: newName });
   }
 
+  handleImageChange(event) {
+    let newImage = event.target.value;
+    this.setState({ team_photo: newImage });
+  }
+
   handleLocationChange(event) {
     let newLocation = event.target.value;
     this.setState({ location: newLocation });
@@ -47,7 +54,7 @@ class TeamsIndexContainer extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    let fetchBody = { name: this.state.name, location: this.state.location };
+    let fetchBody = { name: this.state.name, location: this.state.location, team_photo: this.state.team_photo };
     let current_user = this.state.current_user;
     let newTeams = [];
     fetch('/api/v1/teams',
@@ -62,6 +69,7 @@ class TeamsIndexContainer extends Component {
         name: "",
         location: "",
         users: "",
+        team_photo: "",
         addClicked: false
       }));
   }
@@ -75,7 +83,7 @@ class TeamsIndexContainer extends Component {
           id={team.id}
           name={team.name}
           location={team.location}
-          image_url={team.team_photo.url}
+          image_url={team.team_photo}
           users={team.users}
         />
       );
@@ -87,7 +95,7 @@ class TeamsIndexContainer extends Component {
           id={team.id}
           name={team.name}
           location={team.location}
-          image_url={team.team_photo.url}
+          image_url={team.team_photo}
           users={team.users}
         />
       );
@@ -95,12 +103,13 @@ class TeamsIndexContainer extends Component {
     if (this.state.current_user !== undefined && this.state.current_user !== null) {
       return(
         <div>
-          <div className="row small-up-2 medium-up-3 teams" id="team-index">
+          <div className="row small-up-3 teams" id="team-index">
             <br />
             <TeamForm
             handleSubmit={this.handleSubmit}
             handleNameChange={this.handleNameChange}
             handleLocationChange={this.handleLocationChange}
+            handleImageChange={this.handleImageChange}
             handleAddClicked={this.handleAddClicked}
             clicked={clicked}/>
             <h1 className="indextitle">Your Teams</h1>

@@ -26,7 +26,7 @@ class Api::V1::TeamsController < ApplicationController
 
   def create
     data = JSON.parse(request.body.read)
-    team = Team.new(name: data["name"], location: data["location"])
+    team = Team.new(name: data["name"], location: data["location"], team_photo: data["team_photo"])
     if team.save
       Userteam.create(user: current_user, team: team)
       flash[:notice] = "Team added successfully!"

@@ -13,6 +13,9 @@ const ShowForm = props => {
               <input type="text" name="location" placeholder="Enter location here..." onChange={props.handleLocationChange}/>
             </div>
             <div className="input-field col s3">
+              <input type="text" name="show_photo" placeholder="Enter show photo url here..." onChange={props.handleImageChange}/>
+            </div>
+            <div className="input-field col s3">
               <input type="time" name="time" onChange={props.handleTimeChange}/>
             </div>
             <div className="input-field col s3">

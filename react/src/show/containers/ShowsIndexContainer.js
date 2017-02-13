@@ -16,6 +16,7 @@ class ShowsIndexContainer extends Component {
       date: "",
       price: "",
       slots: 0,
+      show_photo: "",
       addClicked: false,
       current_user: this.props.location.query.current_user
     };
@@ -26,6 +27,7 @@ class ShowsIndexContainer extends Component {
     this.handleTimeChange = this.handleTimeChange.bind(this);
     this.handleDateChange = this.handleDateChange.bind(this);
     this.handlePriceChange = this.handlePriceChange.bind(this);
+    this.handleImageChange = this.handleImageChange.bind(this);
     this.handleSlotsChange = this.handleSlotsChange.bind(this);
     this.handleAddClicked = this.handleAddClicked.bind(this);
   }
@@ -49,6 +51,11 @@ class ShowsIndexContainer extends Component {
   handleNameChange(event) {
     let newName = event.target.value;
     this.setState({ name: newName });
+  }
+
+  handleImageChange(event) {
+    let newImage = event.target.value;
+    this.setState({ show_photo: newImage });
   }
 
   handleLocationChange(event) {
@@ -85,7 +92,7 @@ class ShowsIndexContainer extends Component {
     event.preventDefault();
     let creator_name = (this.state.current_user.first_name + " " + this.state.current_user.last_name);
     let fetchBody = { name: this.state.name, location: this.state.location,
-    duration: this.state.duration, time: this.state.time,
+    duration: this.state.duration, time: this.state.time, show_photo: this.state.show_photo,
     date: this.state.date, price: this.state.price, slots: this.state.slots, creator: creator_name };
     let newShows = [];
     fetch('/api/v1/shows',
@@ -103,6 +110,7 @@ class ShowsIndexContainer extends Component {
         date: "",
         price: "",
         slots: 0,
+        show_photo: "",
         addClicked: false
       }));
   }
@@ -119,7 +127,7 @@ class ShowsIndexContainer extends Component {
             id={show.id}
             name={show.name}
             location={show.location}
-            image_url={show.show_photo.url}
+            image_url={show.show_photo}
             slots={show.slots}
             date={show.date}
             time={show.time}
@@ -137,7 +145,7 @@ class ShowsIndexContainer extends Component {
           id={show.id}
           name={show.name}
           location={show.location}
-          image_url={show.show_photo.url}
+          image_url={show.show_photo}
           slots={show.slots}
           date={show.date}
           time={show.time}
@@ -158,6 +166,7 @@ class ShowsIndexContainer extends Component {
           handleNameChange={this.handleNameChange}
           handleLocationChange={this.handleLocationChange}
           handleDateChange={this.handleDateChange}
+          handleImageChange={this.handleImageChange}
           handleTimeChange={this.handleTimeChange}
           handleDurationChange={this.handleDurationChange}
           handleSlotsChange={this.handleSlotsChange}

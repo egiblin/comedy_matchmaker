@@ -145,7 +145,7 @@ class ShowShowContainer extends Component {
           id={this.state.data.id}
           name={this.state.data.name}
           location={this.state.data.location}
-          image_url={this.state.data.show_photo.url}
+          image_url={this.state.data.show_photo}
           slots={this.state.data.slots}
           date={this.state.data.date}
           time={this.state.data.time}
@@ -185,7 +185,7 @@ class ShowShowContainer extends Component {
           id={this.state.data.id}
           name={this.state.data.name}
           location={this.state.data.location}
-          image_url={this.state.data.show_photo.url}
+          image_url={this.state.data.show_photo}
           slots={this.state.data.slots}
           date={this.state.data.date}
           time={this.state.data.time}

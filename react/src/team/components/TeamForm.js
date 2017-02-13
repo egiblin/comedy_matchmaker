@@ -12,6 +12,9 @@ const TeamForm = props => {
             <div className="input-field col s3">
               <input type="text" name="location" placeholder="Enter location here..." onChange={props.handleLocationChange}/>
             </div>
+            <div className="input-field col s3">
+              <input type="text" name="team_photo" placeholder="Enter team photo url here..." onChange={props.handleImageChange}/>
+            </div>
             <div className="row">
               <div className="col s2 offset-s5 center-align">
                 <input id="make_show" className="small button round" type="submit" value="Add Team" name="Submit" onClick={props.handleSubmit}/>

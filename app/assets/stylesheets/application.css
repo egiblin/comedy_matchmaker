@@ -83,7 +83,6 @@ h1{
 
 #wrapper #content #teamtile {
   position: relative;
-  float: left;
   background-position: 50% 50%;
   background-repeat:   no-repeat;
   background-size:     cover;
@@ -98,7 +97,6 @@ h1{
 }
 #wrapper #content #usertile {
   position: relative;
-  float: left;
   background-position: 50% 50%;
   background-repeat:   no-repeat;
   background-size:     cover;
@@ -116,7 +114,6 @@ h1{
 
 #wrapper #content #showtile {
   position: relative;
-  float: left;
   background-position: 50% 50%;
   background-repeat:   no-repeat;
   background-size:     cover;

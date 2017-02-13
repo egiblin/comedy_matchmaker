@@ -28,7 +28,7 @@ class Api::V1::ShowsController < ApplicationController
     creator = (current_user.first_name + " " + current_user.last_name)
     show = Show.new(name: data["name"], location: data["location"], date: data["date"],
     time: data["time"], duration: data["duration"], slots: data["slots"], creator: creator,
-    price: data["price"])
+    price: data["price"], show_photo: data["show_photo"])
     binding.pry
     if show.save
       Usershow.create(user: current_user, show: show)
