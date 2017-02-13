@@ -174,7 +174,9 @@ class ShowsIndexContainer extends Component {
           handleAddClicked={this.handleAddClicked}
           clicked={clicked}/>
           <h1 className="indextitle">Your Upcoming Shows</h1>
+        <div className="row small-up-2 medium-up-3 shows" id="show-index">
           {user_shows}
+          </div>
         </div>
         <div className="row small-up-2 medium-up-3 shows" id="show-index">
           <h1 className="indextitle">All Upcoming Shows</h1>

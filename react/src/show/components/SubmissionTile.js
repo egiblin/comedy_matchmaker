@@ -7,7 +7,7 @@ const SubmissionTile = ({ id, pitch, improv, selected, team, user_ids, user_id, 
     return(
       <div className="submission">
         <h1><Link to={`/users/${user_id}`} id="link-text">{name} </Link></h1>
-        <p2> {pitch} </p2>
+        <p id="pitch"> {pitch} </p>
         <form>
           <div className="col s2 offset-s5 center-align">
             <input id="select-submission" className="small button round" type="submit" value="Unselect" name="submission-select" onClick={handleSelectedChange(null, id)}/>
@@ -20,7 +20,7 @@ const SubmissionTile = ({ id, pitch, improv, selected, team, user_ids, user_id, 
     return(
       <div className="submission">
         <h1><Link to={`/users/${user_id}`} id="link-text">{name} </Link></h1>
-        <p2> {pitch} </p2>
+        <p id="pitch"> {pitch} </p>
         <form>
           <div className="col s2 offset-s5 center-align">
             <input id="select-submission" className="small button round" type="submit" value="Select" name="submission-select" onClick={handleSelectedChange}/>
@@ -33,7 +33,7 @@ const SubmissionTile = ({ id, pitch, improv, selected, team, user_ids, user_id, 
     return(
       <div className="submission">
       <h1><Link to={`/users/${user_id}`} id="link-text">{name} </Link></h1>
-      <p2> {pitch} </p2>
+      <p id="pitch"> {pitch} </p>
       </div>
     );
   }

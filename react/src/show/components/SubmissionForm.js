@@ -3,7 +3,7 @@ import React from 'react';
 const SubmissionForm = props => {
   if (props.clicked){
     return(
-        <div className="small-6 blocks">
+        <div className="small-6 blocks" id="submission-form">
             <input id="add_submission" type='submit' value="Actually, Nah Dude" className="small button round" onClick={event => {event.preventDefault(), props.handleAddClicked();}} />
             <form>
               <div className="input-field col s3">

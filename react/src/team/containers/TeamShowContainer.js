@@ -30,7 +30,7 @@ class TeamShowContainer extends Component {
           id={this.state.data.team.id}
           name={this.state.data.team.name}
           location={this.state.data.team.location}
-          image_url={this.state.data.team.team_photo.url}
+          image_url={this.state.data.team.team_photo}
           users={this.state.data.users}
           />
         </div>

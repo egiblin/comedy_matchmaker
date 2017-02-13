@@ -9,7 +9,7 @@ const SubmissionTile = ({ id, name, pitch, improv, selected, team, user_id, show
         <p2> {pitch} </p2>
         <form>
           <div className="col s2 offset-s5 center-align">
-            <input id="select-submission" className="small button round" type="submit" value="Unselect" name="submission-select" onClick={handleSelectedChange(null, id)}/>
+            <input id="selected-submission" className="small button round" type="submit" value="Unselect" name="submission-select"/>
           </div>
         </form>
       </div>

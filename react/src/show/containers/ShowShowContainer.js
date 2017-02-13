@@ -154,6 +154,7 @@ class ShowShowContainer extends Component {
           price={this.state.data.price}
           submissions={this.state.data.submissions}
         />
+        <h2> Submissions </h2>
         {submissions}
         </div>
       );
@@ -194,6 +195,7 @@ class ShowShowContainer extends Component {
           price={this.state.data.price}
           submissions={this.state.data.submissions}
         />
+        <h2> Submissions </h2>
         {submissions}
         </div>
       );

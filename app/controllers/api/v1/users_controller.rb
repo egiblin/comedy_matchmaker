@@ -11,8 +11,9 @@ class Api::V1::UsersController < ApplicationController
     @users = User.all
     @teams = @user.teams
     @shows = @user.shows
+    @all_teams = Team.all
     respond_to do |format|
-      format.json  { render :json => {:user => @user, :users => @users, :teams => @teams, :shows => @shows }}
+      format.json  { render :json => {:user => @user, :users => @users, :teams => @teams, :shows => @shows, :all_teams => @all_teams }}
     end
   end
 

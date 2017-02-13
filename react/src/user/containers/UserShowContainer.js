@@ -8,17 +8,26 @@ class UserShowContainer extends Component {
     this.state = {
       data: [],
       shows: [],
-      teams: []
+      teams: [],
+      all_teams: []
     };
+    this.handleTeamAdd = this.handleTeamAdd.bind(this);
   }
 
   componentDidMount() {
     fetch(`/api/v1/users/${this.props.params.id}`)
       .then((response) => response.json())
       .then((responseData) => {
-        this.setState({data: responseData.user, shows: responseData.shows, teams: responseData.teams});
+        this.setState({data: responseData.user, shows: responseData.shows, teams: responseData.teams, all_teams: responseData.all_teams});
       });
   }
+
+  handleTeamAdd(event) {
+    let newTeam = event.target.value;
+    this.setState({ teams: this.state.teams.concant([newTeam]) });
+  }
+
+
   render() {
     if (this.state.data.length === 0) {
       return(
@@ -49,6 +58,7 @@ class UserShowContainer extends Component {
           last_name={this.state.data.last_name}
           image_url={this.state.data.avatar.url}
           users={this.state.data.users}
+          teams={this.state.all_teams}
           />
           <h2>Teams</h2>
             {teams}

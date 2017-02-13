@@ -19,4 +19,5 @@ const ShowTile = ({ id, name, location, image_url, slots, date, time, duration, 
     );
   };
 
+
 export default ShowTile;

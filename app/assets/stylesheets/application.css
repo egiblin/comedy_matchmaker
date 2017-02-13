@@ -15,64 +15,89 @@
  *= require foundation_and_overrides
 
  */
-html {height: 100%}
+html {height: 100%;}
 body {
    height: 100%;
-   margin: 0;
    background-image: url('http://i.imgur.com/i2WZ2xJ.jpg');
-   background-repeat: repeat; 
+   background-repeat: repeat;
    font-family: 'Josefin Sans', sans-serif;
  }
+
 div#content, div#wrapper {
   width: 75em;
   margin: 0 auto;
   text-align: center;
-  padding-bottom: 20em;
-  opacity: 1;
   display: block;
   opacity: 0.98;
-  height: 100%;
+  z-index: -1;
 }
-h1{
+h1, h2{
   font-family: 'Covered By Your Grace', cursive;
 }
+#submission-form{
+  margin: 0 auto;
+}
+
 
 #main-user-button, #main-team-button, #main-show-button{
   width: 25em;
 }
 
-.show img{
+#user-show-photo{
   width: 500px;
   float: left;
+  padding: 50px;
 }
-
+.navbar-link{
+  padding-left: 1em;
+}
+.vertical{
+  z-index: 1000;
+}
+#pitch{
+  font-size: 30px;
+}
 .button#hover{
   background-color: #536C8D
 }
-.users img{
-  opacity: 1;
+
+#team-performer-image {
+  width:  200px;
+  height: 200px;
+  border-radius: 15px;
+  box-shadow: 5px 5px #3C3C3C;
+  text-align: left;
+}
+.small-block-grid-3{
+  display: inline-block;
 }
 
-.orbit-image{
-  width: 300px;
-  height: 300px;
+#user-id {
+  width: 40em;
 }
 #main-user-button, .users {
   background-color: #575A65;
   text-align: center;
+  min-height: 100%;
   box-shadow: inset 0 0 100px #575A65;
 }
 #main-show-button, .shows {
   background-color: #6C6368;
+  min-height: 100%;
   text-align: center;
 }
 #main-team-button, .teams {
   background-color: #838689;
+  min-height: 100%;
   text-align: center;
 }
 .column{
   border-color: black;
   border-width: thin;
+}
+#teamadd{
+  width: 200px;
+  margin: 0 auto;
 }
 #showform, #teamform{
   margin: 0 auto;
@@ -106,7 +131,6 @@ h1{
   background-repeat:   no-repeat;
   background-size:     cover;
   margin: 0.5em;
-  opacity: 1;
 }
 #wrapper #content #usertile img {
    width:  200px;
