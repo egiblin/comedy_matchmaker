@@ -28,7 +28,6 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.5'
 gem 'simplecov'
 gem 'react-rails'
-gem 'coveralls'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
@@ -48,9 +47,6 @@ group :development, :test do
   gem 'shoulda-matchers', require: false
 end
 
-group :test do
-  gem 'coveralls', require: false
-end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
