@@ -126,6 +126,28 @@ class ShowShowContainer extends Component {
         <div></div>
       );
     }
+    else if (current_user == null){
+      return(
+        <div className="shows">
+        <ShowShow
+          key={this.state.data.id}
+          id={this.state.data.id}
+          name={this.state.data.name}
+          location={this.state.data.location}
+          image_url={this.state.data.show_photo}
+          slots={this.state.data.slots}
+          date={this.state.data.date}
+          time={this.state.data.time}
+          duration={this.state.data.duration}
+          creator={this.state.data.creator}
+          price={this.state.data.price}
+          submissions={this.state.data.submissions}
+        />
+        <h2> Submissions </h2>
+        {submissions}
+        </div>
+      );
+    }
     else if (user_ids[current_user.id] !== this.state.data.creator){
       return(
         <div className="shows">

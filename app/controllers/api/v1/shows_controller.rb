@@ -14,8 +14,11 @@ class Api::V1::ShowsController < ApplicationController
 
   def show
     @show = Show.find(params[:id])
-    @current_user = current_user
-    @teams = current_user.teams
+    @current_user = nil
+    if current_user
+      @current_user = current_user
+      @teams = current_user.teams
+    end
     @submissions = @show.submissions
     @users = User.all
     respond_to do |format|
