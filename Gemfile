@@ -30,6 +30,9 @@ gem 'simplecov'
 gem 'react-rails'
 gem 'coveralls'
 gem 'seed_dump'
+gem 'fog'
+gem 'fog-aws'
+gem 'dotenv-rails'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
