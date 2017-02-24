@@ -7,7 +7,6 @@ const SubmissionTile = ({ id, pitch, improv, selected, team, user_ids, user_id, 
     return(
       <div className="submission">
         <h1><Link to={`/users/${user_id}`} id="link-text">{name} </Link></h1>
-        <h3>Improv?</h3>
         <p id="pitch"> {pitch} </p>
         <form>
           <div className="col s2 offset-s5 center-align">

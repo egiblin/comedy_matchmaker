@@ -15,6 +15,7 @@ const UserShow = ({ id, first_name, last_name, image_url, teams, handleTeamAdd, 
         <div className="input-field col s3">
           <h3>Add Team</h3>
           <select id="teamadd" name="team_add" onChange={handleTeamAdd}>
+            <option value="Individual">As Individual</option>
             {team_options}
           </select>
           <div className="row search">
