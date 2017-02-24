@@ -12,13 +12,8 @@ const SubmissionForm = props => {
             <input id="add_submission" type='submit' value="Actually, Nah Dude" className="small button round" onClick={event => {event.preventDefault(), props.handleAddClicked();}} />
             <form>
               <div className="input-field col s3">
-                <select id="improv-dropdown" name="improv-dropdown" value="No">
-                  <option value="No">Individual</option>
-                  <option value="Yes">Improv Team</option>
-                </select>
-              </div>
-              <div className="input-field col s3">
                 <select id="improv-teams-dropdown" name="improv-teams-dropdown">
+                  <option value="Individual">As Individual</option>
                   {team_options}
                 </select>
               </div>
