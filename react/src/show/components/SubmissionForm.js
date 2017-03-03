@@ -3,7 +3,7 @@ import React from 'react';
 const SubmissionForm = props => {
   let team_options = props.teams.map(team => {
     return (
-      <option value={team.name}>With: {team.name}</option>
+      <option value={team.name}>As Improv Team: {team.name}</option>
     );
   });
   if (props.clicked){
