@@ -2,7 +2,10 @@
 
 ## [Live on Heroku](http://comedy-matchmaker.herokuapp.com/)
 
-## 
+![Preview 1]()
+![Preview 2]()
+
+##
 Things you may want to cover:
 
 * Ruby version
